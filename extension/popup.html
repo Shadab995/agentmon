@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AgentMon</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="logo" id="logo"></span><b>AgentMon</b></div>
+    <span class="conn" id="conn">Connecting…</span>
+  </header>
+
+  <section id="offline" class="box offline" hidden>
+    <b>The AgentMon helper isn't running.</b>
+    <p>Start it in a terminal, then press Retry.</p>
+    <code>node ~/.agentmon/bin/agentmon.js start</code>
+    <p class="err" id="err"></p>
+    <button id="retry" class="btn" type="button">Retry</button>
+  </section>
+
+  <section id="online">
+    <h2>Sessions <span id="count" class="muted"></span></h2>
+    <ul id="sessions" class="sessions"></ul>
+    <p id="empty" class="muted empty" hidden>No sessions yet. Start Claude Code and your first pet hatches here.<br>Want a preview? Run <code>node ~/.agentmon/bin/agentmon.js demo</code></p>
+
+    <h2>Settings</h2>
+    <div class="settings">
+      <label class="row"><span>Show pets on pages</span><input type="checkbox" id="showPets"></label>
+      <div class="row"><span>Pets</span>
+        <div class="seg" role="group" aria-label="Pet movement">
+          <button type="button" data-mode="roam" id="modeRoam">Roam</button><button type="button" data-mode="gather" id="modeGather">Gather</button>
+        </div>
+      </div>
+      <label class="row"><span>Notify when a task finishes</span><input type="checkbox" id="notifyDone"></label>
+    </div>
+
+    <h2>Collection <span id="dexcount" class="muted"></span></h2>
+    <div class="dex" id="dex"></div>
+  </section>
+  <script src="creatures.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

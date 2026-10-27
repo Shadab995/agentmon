@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "AgentMon",
+  "version": "0.1.0",
+  "description": "Your Claude Code sessions as pocket creatures that walk along the bottom of every page. Approve requests from any tab.",
+  "permissions": ["storage", "notifications", "alarms"],
+  "host_permissions": ["http://127.0.0.1:*/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "file:///*"],
+      "js": ["creatures.js", "ui.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "AgentMon",
+    "default_popup": "popup.html",
+    "default_icon": { "16": "img/icon16.png", "32": "img/icon32.png", "48": "img/icon48.png", "128": "img/icon128.png" }
+  },
+  "icons": { "16": "img/icon16.png", "32": "img/icon32.png", "48": "img/icon48.png", "128": "img/icon128.png" }
+}
