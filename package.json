@@ -1,0 +1,16 @@
+{
+  "name": "agentmon",
+  "version": "0.1.0",
+  "description": "Your Claude Code sessions as pocket creatures that walk along the bottom of every Chrome tab. Approve permission requests from any tab.",
+  "license": "MIT",
+  "bin": { "agentmon": "bin/agentmon.js" },
+  "files": ["bin", "daemon", "extension", "README.md"],
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build:demo": "node scripts/build-demo.js",
+    "build:assets": "node scripts/build-assets.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.0"
+  }
+}
